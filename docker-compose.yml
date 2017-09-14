@@ -1,0 +1,42 @@
+version: '3'
+services:
+    segurosaas-web:
+        build:
+            dockerfile: ./seguros-saas-web/segurosaas-web.dockerfile
+            context: .
+        image: vrigosilva/segurosaas-web
+        container_name: segurosaas-web
+        ports:
+            - 8081:8081
+        networks:
+            - saas-network
+        depends_on:
+            - segurosaas-bd
+            
+    segurosaas-produto:
+        build:
+            dockerfile: ./seguros-saas-ws/seguros-saas-produto/segurosaas-produto.dockerfile
+            context: .
+        image: vrigosilva/segurosaas-produto
+        container_name: segurosaas-produto
+        ports:
+            - 8082:8082
+        networks:
+            - saas-network
+        depends_on:
+            - segurosaas-bd
+            
+    segurosaas-bd:
+        image: mysql
+        networks:
+            - saas-network
+        environment:
+            - MYSQL_ROOT_PASSWORD='root'
+            - MYSQL_DATABASE='seguros_saas'
+        ports:
+            - 3306:3306
+            
+networks:
+    saas-network:
+        driver: bridge
+            
