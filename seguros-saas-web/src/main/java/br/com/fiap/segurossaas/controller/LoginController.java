@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.fiap.segurossaas.model.Contrato;
-import br.com.fiap.segurossaas.model.Loja;
+import br.com.fiap.segurossaas.model.entity.Contrato;
+import br.com.fiap.segurossaas.model.entity.Loja;
+import br.com.fiap.segurossaas.model.vo.LoginVO;
 import br.com.fiap.segurossaas.service.ContratoService;
 import br.com.fiap.segurossaas.service.LojaService;
 
@@ -26,12 +27,12 @@ public class LoginController {
 		return "login";
 	}
 	
-	@PostMapping("logar")
-	public String logar(@RequestParam("usuario") String usuario, @RequestParam("senha") String senha, Model model ){
-		Loja loja = lojaService.buscaLoja(usuario, senha);
+	@PostMapping("/logar")
+	public String logar(@RequestParam String usuario, @RequestParam String senha, Model model ){
+		Loja loja = lojaService.buscaLoja(new LoginVO(usuario, senha));
 		if(loja != null){
 			Iterable<Contrato> contratos = contratoService.obterTodos(loja);
-			model.addAttribute("loja", contratos);
+			model.addAttribute("contratos", contratos);
 			return "home";
 		}
 		else
