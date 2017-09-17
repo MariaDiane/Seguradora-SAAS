@@ -15,27 +15,27 @@ import br.com.fiap.segurossaas.vo.LoginVO;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	private LojaService lojaService;
-	
+
 	@Autowired
 	private ContratoService contratoService;
-	
+
 	@RequestMapping("/")
-	public String index(){
+	public String index() {
 		return "login";
 	}
-	
+
 	@PostMapping("/logar")
-	public String logar(@RequestParam String usuario, @RequestParam String senha, Model model ){
+	public String logar(@RequestParam String usuario, @RequestParam String senha, Model model) {
 		Loja loja = lojaService.buscaLoja(new LoginVO(usuario, senha));
-		if(loja != null){
+		if (loja != null) {
 			Iterable<Contrato> contratos = contratoService.obterTodos(loja);
 			model.addAttribute("contratos", contratos);
+			model.addAttribute("loja", loja);
 			return "home";
-		}
-		else
+		} else
 			return "login";
 	}
 }
