@@ -14,7 +14,7 @@ public class ContratoService {
 	private ContratoRepository repository;
 	
 	public Iterable<Contrato> obterTodos(Loja loja){
-		Iterable<Contrato> convidados = repository.findByLoja(loja);
-		return convidados;
+		Iterable<Contrato> contratos = repository.findByLoja(loja);
+		return contratos;
 	}
 }

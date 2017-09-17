@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.fiap.segurossaas.model.entity.Contrato;
 import br.com.fiap.segurossaas.model.entity.Loja;
-import br.com.fiap.segurossaas.model.vo.LoginVO;
 import br.com.fiap.segurossaas.service.ContratoService;
 import br.com.fiap.segurossaas.service.LojaService;
+import br.com.fiap.segurossaas.vo.LoginVO;
 
 @Controller
 public class LoginController {

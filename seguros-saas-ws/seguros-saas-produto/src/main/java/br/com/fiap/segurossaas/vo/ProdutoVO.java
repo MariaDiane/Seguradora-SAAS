@@ -1,4 +1,4 @@
-package br.com.fiap.segurossaas.model.vo;
+package br.com.fiap.segurossaas.vo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,17 +6,33 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LoginVO {
-	private String usuario;
+public class ProdutoVO {
 	
+	private String usuario;
+
 	private String senha;
 	
-	public LoginVO() {
+	private String nome;
+	
+	private double valor;
+	
+	public ProdutoVO(){
 	}
 
-	public LoginVO(String usuario, String senha) {
-		this.usuario = usuario;
-		this.senha = senha;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	public String getUsuario() {
