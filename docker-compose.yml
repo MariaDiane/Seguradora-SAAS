@@ -1,42 +1,43 @@
 version: '3'
 services:
+
+    segurosaas-bd:
+        build: ./seguros-saas-bd
+        image: vrigosilva/segurosaas-bd
+        container_name: segurosaas-bd
+        networks: 
+            - segurosaas-net
+        environment:
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: "seguros_saas"
+        ports:
+            - 3306:3306
+        
     segurosaas-web:
-        build:
-            dockerfile: ./seguros-saas-web/segurosaas-web.dockerfile
-            context: .
+        build: ./seguros-saas-web
         image: vrigosilva/segurosaas-web
         container_name: segurosaas-web
         ports:
             - 8081:8081
-        networks:
-            - saas-network
+        networks: 
+            - segurosaas-net
         depends_on:
             - segurosaas-bd
-            
+        command: ["./wait-for", "segurosaas-bd:3306", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]     
+        
     segurosaas-produto:
-        build:
-            dockerfile: ./seguros-saas-ws/seguros-saas-produto/segurosaas-produto.dockerfile
-            context: .
+        build: ./seguros-saas-ws/seguros-saas-produto
         image: vrigosilva/segurosaas-produto
         container_name: segurosaas-produto
         ports:
             - 8082:8082
-        networks:
-            - saas-network
+        networks: 
+            - segurosaas-net
         depends_on:
             - segurosaas-bd
-            
-    segurosaas-bd:
-        image: mysql
-        networks:
-            - saas-network
-        environment:
-            - MYSQL_ROOT_PASSWORD='root'
-            - MYSQL_DATABASE='seguros_saas'
-        ports:
-            - 3306:3306
+        command: ["./wait-for", "segurosaas-bd:3306", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]  
+
             
 networks:
-    saas-network:
+    segurosaas-net:
         driver: bridge
-            
