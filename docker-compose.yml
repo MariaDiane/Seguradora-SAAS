@@ -23,7 +23,7 @@ services:
             - segurosaas-net
         depends_on:
             - segurosaas-bd
-        command: ["./wait-for", "segurosaas-bd:3306", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]     
+        command: ["./wait-for", "segurosaas-bd:3306", "-t", "30", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]     
         
     segurosaas-produto:
         build: ./seguros-saas-ws/seguros-saas-produto
@@ -35,7 +35,7 @@ services:
             - segurosaas-net
         depends_on:
             - segurosaas-bd
-        command: ["./wait-for", "segurosaas-bd:3306", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]  
+        command: ["./wait-for", "segurosaas-bd:3306", "-t", "30", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]  
 
             
 networks:
