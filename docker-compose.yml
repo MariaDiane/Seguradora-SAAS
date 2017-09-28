@@ -37,6 +37,17 @@ services:
             - segurosaas-bd
         command: ["./wait-for", "segurosaas-bd:3306", "-t", "30", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]  
 
+    segurosaas-venda:
+        build: ./seguros-saas-ws/seguros-saas-venda
+        image: vrigosilva/segurosaas-venda
+        container_name: segurosaas-venda
+        ports:
+            - 8083:8083
+        networks: 
+            - segurosaas-net
+        depends_on:
+            - segurosaas-bd
+        command: ["./wait-for", "segurosaas-bd:3306", "-t", "30", "--", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]  
             
 networks:
     segurosaas-net:
