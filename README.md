@@ -38,17 +38,17 @@ A ideia do projeto é disponibilizar um serviço como SaaS e dentre as alternati
 
 Uma vez instalado, para acessar a aplicação basta utilizar os links a seguir:
 
-a. WEB: http://192.168.200.100:8081/
-b. API para cadastro de produtos:
-i. http://192.168.200.100:8082/add
-ii. http://192.168.200.100:8082/buscar
-c. API para efetuar Venda de seguros:
-i. http://192.168.200.100:8083/add
-ii. http://192.168.200.100:8083/buscar
-d. Banco:
-i. 192.168.200.100:3306
-ii. user: root
-iii. pass:root
+&nbsp;a. WEB: http://192.168.200.100:8081/<br/>
+&nbsp;b. API para cadastro de produtos:<br/>
+&nbsp;&nbsp;i. http://192.168.200.100:8082/add<br/>
+&nbsp;&nbsp;ii. http://192.168.200.100:8082/buscar<br/>
+&nbsp;c. API para efetuar Venda de seguros:<br/>
+&nbsp;&nbsp;i. http://192.168.200.100:8083/add<br/>
+&nbsp;&nbsp;ii. http://192.168.200.100:8083/buscar<br/>
+&nbsp;d. Banco:<br/>
+&nbsp;&nbsp;i. 192.168.200.100:3306<br/>
+&nbsp;&nbsp;ii. user: root<br/>
+&nbsp;&nbsp;iii. pass:root<br/>
 
 ## Resumo das tecnologias utilizadas
 
