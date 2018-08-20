@@ -1,6 +1,6 @@
-﻿# seguros-saas
+﻿# Seguradora-SAAS
 
-O seguros-saas é um projeto que consiste em disponibilizar um serviço saas para que as lojas de seguros realizem o cadastro de novos contratos e que possam listar esses contratos.
+Seguradora-SAAS é um projeto que consiste em disponibilizar um serviço saas para que as lojas de seguros realizem o cadastro de novos contratos e que possam listar esses contratos.
 O projeto expõe duas APIs RestFul, uma para cadastro de novos contratos de seguro e outra para listagem.
 Há tambem um módulo web que lista os contratos por loja.
 
