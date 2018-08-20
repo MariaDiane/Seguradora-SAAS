@@ -1,4 +1,4 @@
-# seguros-saas
+﻿# seguros-saas
 
 O seguros-saas é um projeto que consiste em disponibilizar um serviço saas para que as lojas de seguros realizem o cadastro de novos contratos e que possam listar esses contratos.
 O projeto expõe duas APIs RestFul, uma para cadastro de novos contratos de seguro e outra para listagem.
@@ -19,7 +19,7 @@ Utilizamos o conceito de multi tenancy para atender as diferentes empresas sem q
 No desenvolvimento foi utilizado SpringBoot para expor as APIs RestFul, para realizar o cadastro de novos contratos.
 No módulo Web, utilizado para a listagem dos contratos, utilizamos o Thymeleaf com HTML, CSS e um template em Bootstrap.
 
-![alt tag](https://raw.githubusercontent.com/juliodasilv/seguros-saas/master/files/architecture_diagram.png)
+![alt tag](https://raw.githubusercontent.com/juliodasilv/seguros-saas/master/files/architecture_diagram.JPG)
 
 A  arquitetura se apresenta da seguinte maneira. 
 As APIs RestFul são utilizadas para efetuar novos cadastros e a parte web para listagem desses cadastros. 
